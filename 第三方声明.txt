@@ -1,0 +1,68 @@
+第三方组件与许可声明
+================================================================
+
+三角洲行动 · 钓鱼成本核算器  版本 1.0.0
+
+本软件在**构建阶段**使用了第三方工具，在**运行阶段**依赖 Python 标准库
+与 Tcl/Tk。以下逐项说明。
+
+
+一、运行时依赖
+
+1. Python 标准库
+   本软件的源代码只使用 Python 标准库（无第三方运行期依赖）。
+   Python 由 Python Software Foundation 发布，采用 PSF License。
+   https://www.python.org/
+
+2. Tcl/Tk（图形界面）
+   界面基于 Python 自带的 tkinter，其底层为 Tcl/Tk。
+   Tcl/Tk 采用 BSD 风格许可，由 Scriptics Corporation / Tcl Core Team 维护。
+   https://www.tcl.tk/
+
+   打包后的程序会包含 tcl/tk 的运行库文件，它们保留各自的原始许可。
+
+
+二、构建工具
+
+3. Nuitka
+   用于把 Python 源码编译为原生机器码。
+   Copyright (c) Kay Hayen and others，采用 Apache License 2.0。
+   https://nuitka.net/
+
+   使用 Nuitka 编译后的产物属于使用者，Nuitka 本身不主张对编译产物的
+   著作权。Nuitka 在编译期间可能自动获取并使用：
+
+   * MinGW-w64 工具链（GCC）—— 用于生成原生代码。
+     GCC 采用 GPLv3 加 GCC Runtime Library Exception；
+     该例外条款明确允许将 GCC 生成的目标代码以任意许可分发，
+     不影响本软件的许可条款。
+
+   * 依赖遍历工具（如 depends.exe 相关组件）—— 仅构建期使用，
+     不进入最终产物。
+
+
+三、数据来源
+
+4. 游戏数据
+   鱼种名称、款式颜色、尺寸与价格：来自公开价目表截图。
+   水域分布：来自玩家整理的 8 水域 × 27 鱼种分布资料。
+   容器格子布局：来自玩家整理并复核的布局复刻表。
+
+   以上均为游戏事实性数据，不属于第三方软件或代码资产。
+
+
+四、不包含的内容
+
+本软件**不包含**任何第三方游戏模组、注入工具、自动化脚本，
+也不包含任何游戏客户端文件或美术资源。
+
+
+五、许可兼容性说明
+
+* 本软件以编译后的原生二进制分发，不含可还原的 Python 源码。
+* 本软件采用自有许可（见 LICENSE.txt），与上述第三方许可互不冲突：
+  - Python 的 PSF 许可允许在闭源产品中使用和再分发；
+  - Tcl/Tk 的 BSD 风格许可允许在闭源产品中使用和再分发；
+  - GCC Runtime Library Exception 允许 GCC 生成的目标代码任意分发。
+
+若你对上述任一项有疑问，请在分发前自行咨询法律意见。

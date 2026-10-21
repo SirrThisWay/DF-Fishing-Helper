@@ -1,0 +1,32 @@
+# 统一换行符，避免不同系统（或 GitHub 网页上传）把 CRLF 改成 LF。
+#
+# 为什么重要：Windows 的 .bat / .cmd 必须是 CRLF 换行，否则 cmd.exe 会读错
+# 行边界，报出很迷惑的 "... was unexpected at this time."。
+# 这个坑本项目踩过 —— 启动器曾是裸 LF，直接启动失败。
+
+* text=auto
+
+# Windows 脚本强制 CRLF
+*.bat           text eol=crlf
+*.cmd           text eol=crlf
+*.ps1           text eol=crlf
+
+# Python / JSON / 文档用 LF
+*.py            text eol=lf
+*.sh            text eol=lf
+*.md            text
+*.json          text
+*.txt           text
+*.yml           text
+*.spec          text
+
+# 二进制不要做换行转换
+*.png           binary
+*.jpg           binary
+*.jpeg          binary
+*.gif           binary
+*.ico           binary
+*.zip           binary
+*.exe           binary
+*.dll           binary
+*.pyd           binary
